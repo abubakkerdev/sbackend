@@ -28,16 +28,6 @@ app.use(cors(corsPermission));
 // Using cookie-parser middleware with a secret key
 app.use(cookieParser(cookieSecretKey)); 
 
-// Define rate limiting middleware
-const limiter = rateLimit({
-  windowMs: 60 * 1000, // 1 minute
-  max: 60, // limit each IP to 60 requests per window minute
-  headers: true, // send X-RateLimit-Limit header
-});
-
-// Apply the rate limiter to all requests
-app.use(limiter);
-
 const io = socketIo(server, {
   cors: {
     origin: ["https://jomaas-admin-panel.vercel.app", "https://deeplearndl.vercel.app"],
