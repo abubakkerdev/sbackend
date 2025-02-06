@@ -9,7 +9,7 @@ const saltRounds = 11;
 const handleAuth = (req, res) => {
   res.send("All Auth Data Show.");
 };
-
+ 
 const handleStoreUser = async (req, res) => {
   const { uname, email, password } = req.body;
 
