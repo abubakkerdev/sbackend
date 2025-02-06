@@ -147,7 +147,7 @@ const handleLoginUser = async (req, res) => {
             });
 
             return res.send({
-              success: { message: "You’ve successfully logged in." },
+              success: { message: "You’ve successfully logged in.", cookie: cookieValueObj },
             });
           } else {
             return res.send({
@@ -237,7 +237,7 @@ const handleForgotPassword = async (req, res) => {
         sendEmail(email, forgotEmailTemplate, emailFrom, emailSubject, [token]);
 
         return res.send({
-          success: { message: "Check your Email." },
+          success: { message: "Check your Email.", cookie: cookieValueObj },
         });
       } else {
         return res.send({
