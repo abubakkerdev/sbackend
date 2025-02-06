@@ -9,7 +9,7 @@ const saltRounds = 11;
 const handleAuth = (req, res) => {
   res.send("All Auth Data Show.");
 };
- 
+
 const handleStoreUser = async (req, res) => {
   const { uname, email, password } = req.body;
 
@@ -91,7 +91,6 @@ const handleLoginUser = async (req, res) => {
   const { email, password } = req.body;
 
   console.log("output", email, password);
-  
 
   if (email === "") {
     return res.send({
@@ -140,11 +139,10 @@ const handleLoginUser = async (req, res) => {
 
             res.cookie("userAllInfo", JSON.stringify(cookieValueObj), {
               maxAge: 604800000,
-              secure: process.env.NODE_ENV === "production",
+              secure: true,
               path: "/",
-              domain: ".vercel.app",
               signed: true,
-              sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+              sameSite: "none",
               httpOnly: true,
             });
 
@@ -226,11 +224,10 @@ const handleForgotPassword = async (req, res) => {
 
         res.cookie("userAllInfo", JSON.stringify(cookieValueObj), {
           maxAge: 604800000,
-          secure: process.env.NODE_ENV === "production",
+          secure: true,
           path: "/",
-          domain: ".vercel.app",
           signed: true,
-          sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+          sameSite: "none",
           httpOnly: true,
         });
 
