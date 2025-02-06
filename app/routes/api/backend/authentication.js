@@ -27,7 +27,7 @@ _.get("/confirm-email/:token", emailVerify);
 _.post("/login", authLoginValidation, loginUser);
 _.post("/forgot-password", apiPostRequestValidation, forgotPassword);
 _.get("/forgot-password/:token", tokenVerify);
-
+ 
 _.post(
   "/change-password",
   apiPostRequestValidation,

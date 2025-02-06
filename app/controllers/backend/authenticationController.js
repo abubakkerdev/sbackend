@@ -90,6 +90,9 @@ const handleEmailVerify = (req, res) => {
 const handleLoginUser = async (req, res) => {
   const { email, password } = req.body;
 
+  console.log("output", email, password);
+  
+
   if (email === "") {
     return res.send({
       error: {
@@ -139,7 +142,7 @@ const handleLoginUser = async (req, res) => {
               maxAge: 604800000,
               secure: process.env.NODE_ENV === "production",
               path: "/",
-              domain: "deeplearndl.vercel.app",
+              domain: "https://deeplearndl.vercel.app",
               signed: true,
               sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
               httpOnly: true,
@@ -225,7 +228,7 @@ const handleForgotPassword = async (req, res) => {
           maxAge: 604800000,
           secure: process.env.NODE_ENV === "production",
           path: "/",
-          domain: "deeplearndl.vercel.app",
+          domain: "https://deeplearndl.vercel.app",
           signed: true,
           sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
           httpOnly: true,

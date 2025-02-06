@@ -22,7 +22,7 @@ app.enable("case sensitive routing");
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
-// Cors site permission
+// Cors site permission 
 app.use(cors(corsPermission));
 
 // Using cookie-parser middleware with a secret key
