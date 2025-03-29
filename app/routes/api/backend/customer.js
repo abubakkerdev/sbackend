@@ -12,7 +12,7 @@ const apiGetRequestValidation = require("../../../middleware/backend/apiGetReque
 const customerFromValidation = require("../../../middleware/backend/customerFromValidation");
 
 const _ = express.Router();
-
+ 
 _.get("/all", userIsLoginValidation, apiGetRequestValidation, allCustomer);
 _.post(
   "/store",

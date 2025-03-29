@@ -1,5 +1,5 @@
 const customerModel = require("../../models/customer");
-const fs = require("fs");
+const fs = require("node:fs");
 
 const handleAllCustomer = async (req, res) => {
   const allCustomers = await customerModel.find(
@@ -25,7 +25,7 @@ const handleAllCustomer = async (req, res) => {
     });
   }
 };
-
+ 
 const handleStoreCustomer = async (req, res) => {
   const { uname, email, phone, date, subcontinents, description } = req.body;
   const duplicateEmail = await customerModel.find({ email });
@@ -127,7 +127,7 @@ const handleUpdateCustomer = async (req, res) => {
   const { id, uname, phone, date, subcontinents, description, imageObj } =
     req.body;
   const findID = await customerModel.find({ _id: id });
-
+ 
   if (findID.length > 0) {
     try {
       if (req.imgURL) {
@@ -145,7 +145,7 @@ const handleUpdateCustomer = async (req, res) => {
         );
 
         const filePath = "./public/images/" + imageObj[2];
-        fs.unlinkSync(filePath);
+        fs.unlinkSync(filePath);// check this error
 
         return res.send({
           success: {
